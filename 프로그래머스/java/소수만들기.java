@@ -1,3 +1,5 @@
+package 프로그래머스.java;
+
 class Solution {
     public static int solution(int[] nums) {
         int answer = 0;
