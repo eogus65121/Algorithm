@@ -2,7 +2,7 @@ package 프로그래머스.java;
 
 public class 문자열내p와y의개수 {
     class Solution {
-        public static boolean solution(String s) {
+        public boolean solution(String s) {
             s = s.toLowerCase();
             int p_num = 0;
             int y_num = 0;

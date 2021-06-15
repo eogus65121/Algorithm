@@ -2,7 +2,7 @@ package 프로그래머스.java;
 
 public class 문자열내마음대로정렬하기 {
     class Solution {
-        public static String[] solution(String[] strings, int n) {
+        public String[] solution(String[] strings, int n) {
             String[] answer = {};
             for(int i = 0; i < strings.length-1; i++){
                 for(int j = i+1; j < strings.length; j++){
