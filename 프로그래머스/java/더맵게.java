@@ -3,7 +3,7 @@ import java.util.PriorityQueue;
 
 public class 더맵게 {
 class Solution {
-    public static int solution(int [] scoville, int K) {
+    public int solution(int [] scoville, int K) {
         int answer = 0;
         PriorityQueue<Integer> heap = new PriorityQueue<>();
         for(int i : scoville) {
