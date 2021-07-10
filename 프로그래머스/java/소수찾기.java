@@ -29,3 +29,28 @@ class 소수찾기 {
         return answer;
     }
 }
+
+// 다른 풀이 (에라토스테네스의 체 효율이 더 좋다)
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        if(n < 2) return answer = 0;
+        int flag = 1;
+        for(int i = 2; i <= n; i++) {
+            for(int j = 2; j <=Math.sqrt(i); j++){
+                if(i%j==0){
+                    if(i!=j){
+                        flag = 0;
+                        break;
+                    }
+                }
+            }
+            if(flag == 1){
+                answer++;
+            }
+            flag=1;
+        }
+        return answer;
+    }
+}
