@@ -1,6 +1,6 @@
 package 프로그래머스.java;
 
-public class 2016년 {
+public class _2016년 {
     class Solution {
         public static String solution(int a, int b) {
             String answer = "";
