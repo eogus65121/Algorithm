@@ -2,6 +2,8 @@ package 프로그래머스.java;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.StringTokenizer;
+import java.util.Map;
 
 public class 오픈채팅방 {
 
@@ -34,5 +36,43 @@ public class 오픈채팅방 {
             }
             return answer;
         }
+    }
+}
+
+
+// 속도가 더 빠른 코드
+class Solution{
+    public static String[] solution(String[] record) {
+        ArrayList<String> chatting = new ArrayList<>();
+        Map <String, String> uid_nickname = new HashMap<>();
+
+        for(String str : record){
+            StringTokenizer st = new StringTokenizer(str);
+            String action = st.nextToken();
+            String uid = st.nextToken();
+            String nickname = "";
+            if(!action.equals("Leave")) nickname = st.nextToken();
+
+            if(action.equals("Enter")){
+                uid_nickname.put(uid, nickname);
+                String content = uid + "님이 들어왔습니다.";
+                chatting.add(content);
+            }else if(action.equals("Leave")){
+                String content = uid + "님이 나갔습니다.";
+                chatting.add(content);
+            }else if(action.equals("Change")){
+                uid_nickname.put(uid, nickname);
+            }
+        }
+
+        int index = 0;
+        String []answer = new String[chatting.size()];
+
+        for(String str : chatting){
+            String ss = uid_nickname.get(str.substring(0, str.indexOf("님이"))) + str.substring(str.indexOf("님이"));
+            answer[index++] = ss;
+        }
+
+        return answer;
     }
 }
