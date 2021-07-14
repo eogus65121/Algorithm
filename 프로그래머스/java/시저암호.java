@@ -4,12 +4,13 @@ public class 시저암호 {
             String answer = "";
     
             for(int i =0; i<s.length(); i++){
-                if(s.charAt(i) == 0x20) answer += " ";
+                char ch = s.charAt(i);
+                if(ch == 0x20) answer += " ";
                 else {
-                    int ascii_num = (int)s.charAt(i)+n;
-                    if(Character.isUpperCase(s.charAt(i))){
+                    int ascii_num = (int)ch+n;
+                    if(Character.isUpperCase(ch)){
                         if(ascii_num > 90) ascii_num = ascii_num%90 +64;
-                    } else{
+                    } else if (Character.isLowerCase(ch)){
                         if(ascii_num > 122) ascii_num = ascii_num%122 + 96;
                     }
                     answer += (char)ascii_num;
