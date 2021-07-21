@@ -21,3 +21,7 @@ public class _3진법뒤집기 {
         }
     }
 }
+
+// String에서 Integer 변환할 때 3진수로 변환
+// Integer.parseInt(String, 3);
+// 위의 풀이 list 선언 대신 String으로 나열 후 reverse + Integer.parseInt(String, 3); 사용
