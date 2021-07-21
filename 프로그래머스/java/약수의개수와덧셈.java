@@ -25,21 +25,20 @@ public class 약수의개수와덧셈 {
 
 
 
-//효율성이 증가한 상태의 코드
+// 에라토스테네스의 체 코드를 참고하여 수정한 코드
 class Solution {
     public int solution(int left, int right) {
         int answer = 0;
-        int s = (int)Math.ceil(Math.sqrt(left));
-        int ss = s * s;
-        for (int i = left; i <= right; i++) {
-            if (i == ss) {
-                answer -= i;
-                s++;
-                ss = s * s;
-            } else {
-                answer += i;
-            }
-        }
+
+        for(;left <= right; left++) answer += divisor(left);
+
         return answer;
+    }
+    public int divisor(int num){
+        int sqrt_num = (int)Math.ceil(Math.sqrt(num));
+
+        if(sqrt_num * sqrt_num == num) return (-1) * num;
+
+        return num;
     }
 }
