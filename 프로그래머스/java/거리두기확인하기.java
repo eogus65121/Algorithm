@@ -4,7 +4,7 @@ public class 거리두기확인하기 {
         public int[] solution(String[][] places) {
             int[] answer = new int [5];
             for(int i = 0; i < 5; i++){
-                String[][] temp = array_2d(places[i]);
+                String[][] temp = array_split(places[i]);
                 answer[i] = distance_value(temp);
             }
             return answer;
@@ -12,7 +12,7 @@ public class 거리두기확인하기 {
 
         // places의 String 값을 split으로 2차원 배열 하나하나로 쪼갬
         // places[i] = "POOOP"  >> place[i][j] = {P, O, O, O, P} 이런식
-        String [][] array_2d(String [] place){
+        String [][] array_split(String [] place){
             String [][] arr = new String[5][5];
             for(int i = 0; i < 5; i++){
                 int index = 0;
