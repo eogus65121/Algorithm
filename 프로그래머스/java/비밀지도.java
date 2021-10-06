@@ -29,7 +29,7 @@ public class 비밀지도 {
 
 
 // String으로 접근하여 푼 방법
-class Solution10 {
+class Solution {
     public static String[] solution(int n, int[] arr1, int[] arr2) {
         String[] answer = new String[n];
 
