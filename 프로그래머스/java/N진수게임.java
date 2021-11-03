@@ -28,3 +28,22 @@ class Solution {
         return sb.reverse().toString();
     }
 }
+
+/*  처음 코드의 conversion 메소드를 Integer.toString(숫자, n진수)로 처리
+
+class Solution {
+    public String solution(int n, int t, int m, int p) {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < t*m; i++){
+            sb.append(Integer.toString(i, n));
+        }
+        String str = sb.toString().toUpperCase();
+        sb.setLength(0);
+        for(int i = p-1; i < str.length(); i+=m){
+            sb.append(str.charAt(i));
+            if(sb.length() == t) break;
+        }
+        return sb.toString();
+    }
+}
+*/
