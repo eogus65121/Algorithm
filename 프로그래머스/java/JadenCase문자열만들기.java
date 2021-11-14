@@ -17,3 +17,19 @@ class Solution {
         return sb.toString();
     }
 }
+
+/* 숫자를 신경쓰지 않고 변경한 코드
+class Solution {
+    public String solution(String s) {
+        StringBuilder sb = new StringBuilder();
+        s = s.toLowerCase();
+        int head = 0;
+        for(int i = 0; i < s.length(); i++){
+            char c = s.charAt(i);
+            sb.append(head == 0 ? Character.toUpperCase(c) : c);
+            head = c == ' ' ? 0 : 1;
+        }
+        return sb.toString();
+    }
+}
+*/
