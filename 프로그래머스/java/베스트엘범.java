@@ -66,3 +66,130 @@ public class 베스트엘범 {
         }
     }
 }
+
+/** 참고할 코드 */
+/*import java.util.ArrayList;
+        import java.util.Collection;
+        import java.util.Comparator;
+        import java.util.HashMap;
+        import java.util.List;
+        import java.util.Map;
+        import java.util.stream.Collectors;
+
+public class Solution {
+    public int[] solution(String[] genres, int[] plays) {
+        PlayHistories playHistories = PlayHistoriesFactory.create(genres, plays);
+
+        return playHistories.getBestAlbum().stream()
+                .map(PlayHistory::getSongId)
+                .mapToInt(Long::intValue)
+                .toArray();
+    }
+
+    public static class PlayHistoriesFactory {
+        public static PlayHistories create(String[] genres, int[] plays) {
+            Map<String, List<PlayHistory>> playHistories = new HashMap<>();
+
+            for (int id = 0, length = genres.length; id < length; id++) {
+                List<PlayHistory> histories = playHistories.getOrDefault(genres[id], new ArrayList<>());
+                histories.add(PlayHistory.of(id, plays[id]));
+                playHistories.put(genres[id], histories);
+            }
+
+            return new PlayHistories(playHistories);
+        }
+    }
+
+    public static class PlayHistories {
+        private final List<PlayHistoriesByGenre> playHistories;
+
+        public PlayHistories(List<PlayHistoriesByGenre> playHistories) {
+            this.playHistories = playHistories;
+        }
+
+        public PlayHistories(Map<String, List<PlayHistory>> playHistories) {
+            this.playHistories = playHistories.entrySet().stream()
+                    .map(entry -> new PlayHistoriesByGenre(entry.getKey(), entry.getValue()))
+                    .collect(Collectors.toList());
+        }
+
+        public List<PlayHistory> getBestAlbum() {
+            return this.playHistories.stream()
+                    .sorted(Comparator.reverseOrder())
+                    .map(PlayHistoriesByGenre::getBestTwoSongs)
+                    .flatMap(Collection::stream)
+                    .collect(Collectors.toList());
+        }
+    }
+
+    public static class PlayHistoriesByGenre implements Comparable<PlayHistoriesByGenre> {
+        private final List<PlayHistory> playHistories;
+        private final String genre;
+
+        public PlayHistoriesByGenre(String genre, List<PlayHistory> playHistories) {
+            this.playHistories = playHistories;
+            this.genre = genre;
+        }
+
+        public List<PlayHistory> getBestTwoSongs() {
+            return this.playHistories.stream()
+                    .sorted(Comparator.reverseOrder())
+                    .limit(2)
+                    .collect(Collectors.toList());
+        }
+
+        public Integer calculatePlayTimes() {
+            return this.playHistories.stream()
+                    .map(PlayHistory::getPlayTimes)
+                    .reduce(0, Integer::sum);
+        }
+
+        @Override
+        public int compareTo(PlayHistoriesByGenre other) {
+            return this.calculatePlayTimes().compareTo(other.calculatePlayTimes());
+        }
+    }
+
+    public static class PlayHistory implements Comparable<PlayHistory> {
+        private final Song song;
+        private final Integer playTimes;
+
+        public PlayHistory(Song song, Integer playTimes) {
+            this.song = song;
+            this.playTimes = playTimes;
+        }
+
+        public static PlayHistory of(Integer songId, Integer playTimes) {
+            return of(Long.valueOf(songId), playTimes);
+        }
+
+        public static PlayHistory of(Long songId, Integer playTimes) {
+            return new PlayHistory(new Song(songId), playTimes);
+        }
+
+        public Long getSongId() {
+            return song.getId();
+        }
+
+        public Integer getPlayTimes() {
+            return playTimes;
+        }
+
+        @Override
+        public int compareTo(PlayHistory other) {
+            return this.playTimes.compareTo(other.playTimes);
+        }
+    }
+
+    public static class Song {
+        private final Long id;
+
+        public Song(Long id) {
+            this.id = id;
+        }
+
+        public Long getId() {
+            return id;
+        }
+    }
+}*/
