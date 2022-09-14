@@ -18,7 +18,6 @@ public class 거스름돈 {
                     }else continue;
                 }
             }
-
             System.out.println(answer);
         }
     }
