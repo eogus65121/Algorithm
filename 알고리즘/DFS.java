@@ -23,6 +23,7 @@ public class DFS {
         rtnList.stream().forEach(System.out::println);
     }
 
+    // 한가지 정점과 모든 정점을 탐색하는 경우 스택을 활용한 dfs
     public static  void dfs(boolean[] vst, int[][] graph){
         Stack<Integer> stack = new Stack<>();
 
@@ -43,4 +44,30 @@ public class DFS {
         }
 
     }
+
+    // 한 가지 정점과 모든 정점을 탐색하는 경우 재귀를 활용한 dfs
+    public static void dfs1(int[][] graph, int nodeIdx, boolean[] vst){
+        vst[nodeIdx] = true;
+        rtnList.add(nodeIdx);
+
+        for(int node : graph[nodeIdx]){
+            if(!vst[node]){
+                dfs1(graph, node, vst);
+            }
+        }
+    }
+
+    //경로를 찾아야하는 경우 dfs
+    public static void dfs2(int[][] graph, int nodeIdx, boolean[] vst){
+        for(int node : graph[nodeIdx]){
+            if(vst[node] == true) continue;
+
+            //false
+            vst[node] = true;
+            dfs2(graph, nodeIdx, vst);
+            vst[node] = false;
+        }
+    }
+
+    //todo 사이클이 존재하는 경우의 dfs 알고리즘 변형 추가 예정
 }
