@@ -2,7 +2,6 @@ package 백준.java.algorithm.greedy;
 
 import java.util.*;
 import java.io.IOException;
-import java.util.stream.Collectors;
 
 class ATM {
     public static void main(String[] args) throws IOException{
