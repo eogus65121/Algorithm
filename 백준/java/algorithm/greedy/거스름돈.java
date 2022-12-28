@@ -21,4 +21,30 @@ public class 거스름돈 {
             System.out.println(answer);
         }
     }
+
+    // 더 빠른 풀이
+////    import java.io.*;
+//import java.util.*;
+//
+//    class Main{
+//        public static void main(String[] args) throws IOException{
+//            Scanner sc = new Scanner(System.in);
+//            int num = sc.nextInt();
+//            int count = 0;
+//            int n = num / 5;
+//            while(true){
+//                if(n < 0){
+//                    count = -1;
+//                    break;
+//                }
+//                int left = num - (5 * n);
+//                if(left % 2 == 0){
+//                    count += (left/2) + n;
+//                    break;
+//                }
+//                n--;
+//            }
+//            System.out.println(count);
+//        }
+//    }
 }
