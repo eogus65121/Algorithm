@@ -1,10 +1,12 @@
+package 프로그래머스.java;
+
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.LinkedList;
 
 
 // 코드 참고
-class Solution {
+class 위클리챌린지9주차 {
     public int solution(int n, int[][] wires) {
         ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
         for(int i=0; i<=n; i++) {
