@@ -11,18 +11,15 @@ class 수리공항승{
 
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        String[] temp = sc.nextLine().split(" ");
-        int n = Integer.parseInt(temp[0]);
-        int l = Integer.parseInt(temp[1]);
 
-        String[] temp2 = sc.nextLine().split(" ");
-
+        int n = 4; // 물이 새는 곳의 개수
+        int l = 2; // 길이가 2인 테이프
+        int[] position = {1, 2, 100, 101};
         int[] pos = new int [1001];
         int tape = 0;
-
         // 물이 새는 곳을 표시
         for(int i = 0; i < n; i++){
-            pos[Integer.parseInt(temp2[i])] = 1;
+            pos[position[i]] = 1;
         }
 
         // 반복문을 돌면서 첫 시작지점에 테이프를 붙이고 테이프의 길이만큼 i에 더해주어
